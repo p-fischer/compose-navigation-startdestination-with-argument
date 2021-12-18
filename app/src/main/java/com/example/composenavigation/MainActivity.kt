@@ -26,8 +26,8 @@ class MainActivity : ComponentActivity()
 
 			NavHost(
 				navController = navController,
-				//startDestination = "dynamic/1", // doesn't work
-				startDestination = "static", // works
+				startDestination = "dynamic/1", // doesn't work
+				// startDestination = "static", // works
 			) {
 				composable(
 					route = "dynamic/{$ARG_ID}",
