@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity()
 			NavHost(
 				navController = navController,
 				startDestination = "dynamic/1", // doesn't work
-				// startDestination = "static", // works
+				// startDestination = "static", // workaround
 			) {
 				composable(
 					route = "dynamic/{$ARG_ID}",
@@ -36,13 +36,14 @@ class MainActivity : ComponentActivity()
 					val id = it.arguments?.getString(ARG_ID)
 					Text("dynamic route, received argument: $id!")
 				}
-				composable(
-					route = "static",
-				) {
-					LaunchedEffect(this) {
-						navController.navigate("dynamic/1")
-					}
-				}
+				// part of the workaround
+				// composable(
+				// 	route = "static",
+				// ) {
+				// 	LaunchedEffect(this) {
+				// 		navController.navigate("dynamic/1")
+				// 	}
+				// }
 			}
 		}
 	}
